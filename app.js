@@ -32,7 +32,10 @@ Comments.register(function(app, auth, database) {
   Comments.aggregateAsset('css', '/node_modules/comments/public/assets/lib/ment.io/ment.io/style.css', {
     absolute: true
   });
-  Comments.aggregateAsset('css', '/node_modules/comments/public/assets/css/meanUpload.css', {
+  Comments.aggregateAsset('css', '/node_modules/comments/public/assets/lib/angular-emoticons/stylesheets/angular-emoticons.css', {
+    absolute: true
+  });
+  Comments.aggregateAsset('css', '/node_modules/comments/public/assets/css/comments.css', {
     absolute: true
   });
   Comments.angularDependencies(['yaru22.angular-timeago', 'emoticonizeFilter', 'monospaced.elastic', 'mentio']);
