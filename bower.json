@@ -1,0 +1,10 @@
+{
+  "name": "mean",
+  "version": "0.3.3",
+  "dependencies": {
+    "angular-timeago": "~0.1.2",
+    "angular-emoticons": "pratik60/angular-emoticons",
+    "angular-elastic": "~2.3.5",
+    "ment.io": "~0.9.8"
+  }
+}

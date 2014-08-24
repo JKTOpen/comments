@@ -1,9 +1,15 @@
 {
   "name": "comments",
-  "version": "0.0.1",
-  "description": "Some description of comments",
+  "version": "0.0.2",
+  "description": "Enable comments with mentions and emoticons on your site",
   "author": {
-    "name": "mean scaffold"
+    "name": "QED42"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "mean-health": "~0.1.2"
   },
   "mean": "0.4.0",
   "engines": {

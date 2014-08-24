@@ -71,9 +71,11 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
       FetchComments.query(queryParams)
         .$promise.then(function(comments) {
           comments.forEach(function(comment) {
-            comment.mentionsUsers.forEach(function(user) {
-              comment.body = comment.body.replace('[-' + user.name + ']', '<a class="mention-user" href="/#!/users/' + user._id + '">' + user.name + '</a>');
-            });
+            if (comment.mentionsUsers !== null && comment.mentionsUsers !== undefined & comment.mentionsUsers.length > 0) {
+              comment.mentionsUsers.forEach(function(user) {
+                comment.body = comment.body.replace('[-' + user.name + ']', '<a class="mention-user" href="/#!/users/' + user._id + '">' + user.name + '</a>');
+              });
+            }
           });
           if (fixedNumberOfComments && comments.length > fixedNumberOfComments) {
             $scope.loadcomment = true;
@@ -134,11 +136,10 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
       }
       comment.$save().then(function(data) {
         var tags_users = [];
-        var message_body;
+        var regex = /(<([^>]+)>)/ig;
         if (data.mentionsUsers !== undefined && data.mentionsUsers.length > 0) {
           data.mentionsUsers.forEach(function(user) {
             tags_users.push(user._id);
-            message_body = data.body.replace('<a class="mention-user" href="/#!/users/' + user._id + '">' + user.name + '</a>', '[-' + user.name + ']');
           });
 
         }
@@ -155,7 +156,7 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
             message: 'has mentioned you in a comment',
             notificationType: 'comment',
             contentId: parent._id,
-            teaser: message_body.substring(0, 40),
+            teaser: data.body.replace(regex, '').substring(0, 40),
             eventInitiator: Global.user._id,
             messageFor: [],
             readBy: [],
@@ -175,7 +176,7 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
             message: 'wrote a comment on your post',
             notificationType: 'comment',
             contentId: parent._id,
-            teaser: message_body.substring(0, 40),
+            teaser: data.body.replace(regex, '').substring(0, 40),
             eventInitiator: Global.user._id,
             messageFor: [],
             readBy: [],
