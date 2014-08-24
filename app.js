@@ -6,32 +6,32 @@
 var Module = require('meanio').Module;
 var Comments = new Module('comments');
 
-var server = require('http').createServer(app).listen(8282);
-var io = require('socket.io').listen(server);
-
-socket.on('commentCreated', function(comment) {
-  socket.broadcast.emit('commentCreated', {
-    comment: comment
-  });
-});
-
-socket.on('commentDeleted', function(comment) {
-  socket.broadcast.emit('commentDeleted', {
-    comment: comment
-  });
-});
-
-socket.on('commentUpdated', function(comment) {
-  socket.broadcast.emit('commentUpdated', {
-    comment: comment
-  });
-});
-
 /*
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
 Comments.register(function(app, auth, database) {
+
+  // var server = require('http').createServer(app).listen(8282);
+  // var io = require('socket.io').listen(server);
+
+  // socket.on('commentCreated', function(comment) {
+  //   socket.broadcast.emit('commentCreated', {
+  //     comment: comment
+  //   });
+  // });
+
+  // socket.on('commentDeleted', function(comment) {
+  //   socket.broadcast.emit('commentDeleted', {
+  //     comment: comment
+  //   });
+  // });
+
+  // socket.on('commentUpdated', function(comment) {
+  //   socket.broadcast.emit('commentUpdated', {
+  //     comment: comment
+  //   });
+  // });
 
   Comments.routes(app, auth, database);
   Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/angular-elastic/elastic.js', {
