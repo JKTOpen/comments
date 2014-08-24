@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.comments').controller('CommentsController', ['$scope', '$http', 'Global', 'Log', '$stateParams', 'Comments', 'FetchComments', 'socket', 'utils',
-  function($scope, $http, Global, Log, $stateParams, Comments, FetchComments, socket, utils) {
+angular.module('mean.comments').controller('CommentsController', ['$scope', '$http', 'Global', '$stateParams', 'Comments', 'FetchComments', 'socket', 'utils',
+  function($scope, $http, Global, $stateParams, Comments, FetchComments, socket, utils) {
     $scope.global = Global;
     $scope.commentEditable = true;
 
@@ -9,7 +9,6 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
     $scope.mentionsUsers = [];
 
     $scope.getCommentPeopleTextRaw = function(item) {
-      // return '<a href="/#!/users/53df59adb198510000b440e5">' + item.name + '</a>'
       $scope.mentionsUsers.push({
         'id': item._id,
         'name': item.name
@@ -21,6 +20,7 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
     $scope.package = {
       name: 'comments'
     };
+
     $scope.loadcomment = false;
 
     socket.on('commentCreated', function(response) {
@@ -151,41 +151,8 @@ angular.module('mean.comments').controller('CommentsController', ['$scope', '$ht
         }
         $scope.parent.comments.push(data);
         if (data.mentionsUsers !== undefined && data.mentionsUsers.length > 0) {
-          // tags_users.splice(tags_users.indexOf(Global.user._id), 1);
-          var log1 = new Log({
-            message: 'has mentioned you in a comment',
-            notificationType: 'comment',
-            contentId: parent._id,
-            teaser: data.body.replace(regex, '').substring(0, 40),
-            eventInitiator: Global.user._id,
-            messageFor: [],
-            readBy: [],
-          });
-          log1.messageFor = tags_users;
-          log1.$save(function(res) {
-            socket.emit('notificationCreate', {
-              data: res
-            });
-          });
           $scope.mentionsUsers.forEach(function(user) {
             data.body = data.body.replace('[-' + user.name + ']', '<a class="mention-user" href="/#!/users/' + user.id + '">' + user.name + '</a>');
-          });
-        }
-        if (data.user._id !== parent.user._id) {
-          var log = new Log({
-            message: 'wrote a comment on your post',
-            notificationType: 'comment',
-            contentId: parent._id,
-            teaser: data.body.replace(regex, '').substring(0, 40),
-            eventInitiator: Global.user._id,
-            messageFor: [],
-            readBy: [],
-          });
-          log.messageFor.push(parent.user._id);
-          log.$save(function(res) {
-            socket.emit('notificationCreate', {
-              data: res
-            });
           });
         }
         // Use of utils utils.findAndModify(parent.comments, data);

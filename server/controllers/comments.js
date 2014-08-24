@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
   Comment = mongoose.model('Comment'),
+  User = mongoose.model('User'),
   _ = require('lodash');
 
 
@@ -108,8 +109,8 @@ exports.fetchByParent = function(req, res) {
   var parentId = req.params.parentId;
   var limit = req.query.limit;
   var query = Comment.find({
-      parent: parentId
-    })
+    parent: parentId
+  })
     .sort({
       _id: -1
     })
@@ -127,5 +128,16 @@ exports.fetchByParent = function(req, res) {
     } else {
       res.json(comments);
     }
+  });
+};
+
+exports.allusers = function(req, res) {
+  User.find({
+    name: {
+      $regex: req.query.term,
+      $options: '-i'
+    }
+  }).exec(function(err, users) {
+    res.json(users);
   });
 };

@@ -24,6 +24,9 @@ module.exports = function(Comments, app, auth, database) {
     .put(auth.requiresLogin, hasAuthorization, comments.update)
     .delete(auth.requiresLogin, hasAuthorization, comments.destroy);
 
+  // Fetch User With query params
+  app.get('/tag/users/', comments.allUsers);
+
   // Finish with setting up the postId param
   app.param('commentId', comments.comment);
 };

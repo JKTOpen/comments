@@ -13,7 +13,6 @@ var Comments = new Module('comments');
  */
 Comments.register(function(app, auth, database) {
 
-  //We enable routing. By default the Package Object is passed to the routes
   Comments.routes(app, auth, database);
   Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/angular-elastic/elastic.js', {
     absolute: true
