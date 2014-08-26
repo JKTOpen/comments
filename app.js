@@ -10,10 +10,10 @@ var Comments = new Module('comments');
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Comments.register(function(app, auth, database) {
-
-  var server = require('http').createServer(app).listen(8282);
-  var io = require('socket.io').listen(server);
+Comments.register(function(app, auth, database,socket) {
+  var io = socket.io ; // note this is the socket object set in mean-socket and not the generic socket.io
+//  var server = require('http').createServer(app).listen(8282);
+//  var io = require('socket.io').listen(server);
   io.sockets.on('connection', function(socket) {
     socket.on('commentCreated', function(comment) {
       socket.broadcast.emit('commentCreated', {
