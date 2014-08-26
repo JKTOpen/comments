@@ -5,9 +5,9 @@
 	</div>
 	<div data-ng-repeat="comment in parent.comments | orderBy: '+created' " class="comment-items" >
 		<div class="comment">
-			<div class="post-image">
+<!-- 			<div class="post-image">
 				<img ng-src ="{{comment.user.picture}}">
-			</div>
+			</div> -->
 			<div>
 				<span class="comment-author"><a href="#!/users/{{comment.user._id}}">{{comment.user.name}}</a></span>
 				<span class="comment-time-ago" time-ago from-time="{{comment.created}}"></span>
@@ -31,9 +31,9 @@
 							<i class="fa fa-pencil"></i>
 						</a>
 					</span>
-					<span ng-include="'likes/views/like-button.html'" data-ng-controller="LikesController" data-ng-init="findLikes('comment', comment)" />
-				</div>
-			</div>
-		</div>
-	</div>
+          <!-- 					<span ng-include="'likes/views/like-button.html'" data-ng-controller="LikesController" data-ng-init="findLikes('comment', comment)" /> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('mean.comments', ['mean.mean-socket']);
+angular.module('mean.comments', ['mean.meansocket']);
