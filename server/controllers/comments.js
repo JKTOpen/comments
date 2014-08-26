@@ -41,7 +41,7 @@ exports.create = function(req, res) {
     } else {
       comment.populate({
         path: 'mentionsUsers',
-        select: 'name username picture'
+        select: 'name username'
       }, function(err, doc) {
         res.json(doc);
       });
@@ -77,7 +77,7 @@ exports.update = function(req, res) {
     } else {
       comment.populate({
         path: 'mentionsUsers',
-        select: 'name username picture'
+        select: 'name username'
       }, function(err, doc) {
         res.json(doc);
       });
@@ -114,9 +114,9 @@ exports.fetchByParent = function(req, res) {
     .sort({
       _id: -1
     })
-    .populate('user', 'name username picture')
-    .populate('mentionsUsers', 'name username picture')
-    .populate('likes', 'name username picture');
+    .populate('user', 'name username')
+    .populate('mentionsUsers', 'name username')
+    .populate('likes', 'name username');
   if (limit) {
     query.limit(limit);
   }
