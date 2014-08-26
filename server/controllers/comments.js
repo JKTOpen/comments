@@ -131,7 +131,7 @@ exports.fetchByParent = function(req, res) {
   });
 };
 
-exports.allusers = function(req, res) {
+exports.allUsers = function(req, res) {
   User.find({
     name: {
       $regex: req.query.term,
