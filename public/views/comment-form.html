@@ -14,3 +14,10 @@
     </p>
   </form>
 </div>
+<script type="text/ng-template" id="/people-mentions.tpl">
+  <ul class="list-group user-search">
+    <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+      <span ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
+    </li>
+  </ul>
+</script>
