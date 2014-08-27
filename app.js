@@ -58,6 +58,7 @@ Comments.register(function(app, auth, database, socket) {
   Comments.aggregateAsset('css', '/packages/comments/public/assets/css/comments.css', {
     absolute: true
   });
+
   Comments.angularDependencies(['yaru22.angular-timeago', 'emoticonizeFilter', 'monospaced.elastic', 'mentio', 'mean.socket']);
 
   return Comments;
