@@ -10,10 +10,10 @@ var Comments = new Module('comments');
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Comments.register(function(app, auth, database,socket) {
-  var io = socket.io ; // note this is the socket object set in mean-socket and not the generic socket.io
-//  var server = require('http').createServer(app).listen(8282);
-//  var io = require('socket.io').listen(server);
+Comments.register(function(app, auth, database, socket) {
+  var io = socket.io; // note this is the socket object set in mean-socket and not the generic socket.io
+  //  var server = require('http').createServer(app).listen(8282);
+  //  var io = require('socket.io').listen(server);
   io.sockets.on('connection', function(socket) {
     socket.on('commentCreated', function(comment) {
       socket.broadcast.emit('commentCreated', {
@@ -34,31 +34,31 @@ Comments.register(function(app, auth, database,socket) {
     });
   });
   Comments.routes(app, auth, database);
-  Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/angular-elastic/elastic.js', {
+  Comments.aggregateAsset('js', '/packages/comments/public/assets/lib/angular-elastic/elastic.js', {
     absolute: true
   });
-  Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/angular-emoticons/javascripts/angular-emoticons.js', {
+  Comments.aggregateAsset('js', '/packages/comments/public/assets/lib/angular-emoticons/javascripts/angular-emoticons.js', {
     absolute: true
   });
-  Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/angular-timeago/src/timeAgo.js', {
+  Comments.aggregateAsset('js', '/packages/comments/public/assets/lib/angular-timeago/src/timeAgo.js', {
     absolute: true
   });
-  Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/ment.io/dist/mentio.js', {
+  Comments.aggregateAsset('js', '/packages/comments/public/assets/lib/ment.io/dist/mentio.js', {
     absolute: true
   });
-  Comments.aggregateAsset('js', '/node_modules/comments/public/assets/lib/Autolinker.js/src/Autolinker.js', {
+  Comments.aggregateAsset('js', '/packages/comments/public/assets/lib/Autolinker.js/src/Autolinker.js', {
     absolute: true
   });
-  Comments.aggregateAsset('css', '/node_modules/comments/public/assets/lib/ment.io/ment.io/style.css', {
+  Comments.aggregateAsset('css', '/packages/comments/public/assets/lib/ment.io/ment.io/style.css', {
     absolute: true
   });
-  Comments.aggregateAsset('css', '/node_modules/comments/public/assets/lib/angular-emoticons/stylesheets/angular-emoticons.css', {
+  Comments.aggregateAsset('css', '/packages/comments/public/assets/lib/angular-emoticons/stylesheets/angular-emoticons.css', {
     absolute: true
   });
-  Comments.aggregateAsset('css', '/node_modules/comments/public/assets/css/comments.css', {
+  Comments.aggregateAsset('css', '/packages/comments/public/assets/css/comments.css', {
     absolute: true
   });
-  Comments.angularDependencies(['yaru22.angular-timeago', 'emoticonizeFilter', 'monospaced.elastic', 'mentio']);
+  Comments.angularDependencies(['yaru22.angular-timeago', 'emoticonizeFilter', 'monospaced.elastic', 'mentio', 'mean.socket']);
 
   return Comments;
 });
