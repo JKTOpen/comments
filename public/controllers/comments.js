@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('mean.comments').controller('CommentsController', ['$scope', '$http', 'Global', '$stateParams', 'Comments', 'FetchComments', 'socket', 'utils',
-  function($scope, $http, Global, $stateParams, Comments, FetchComments, socket, utils) {
+angular.module('mean.comments').controller('CommentsController', ['$scope', '$http', 'Global', '$stateParams', 'Comments', 'FetchComments', 'MeanSocket', 'utils',
+  function($scope, $http, Global, $stateParams, Comments, FetchComments, MeanSocket, utils) {
+    var socket = MeanSocket;
     $scope.global = Global;
     $scope.commentEditable = true;
 
