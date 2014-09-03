@@ -1,5 +1,9 @@
 README: comments
 
+You must install mean install sockets, prior to installing comments.
+This will be added as a dependency in the near future.
+
+
 To include comments, for now, you should just mention the same on
 
 
