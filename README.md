@@ -9,6 +9,6 @@ articles/views/view.html or articles/views/list.html
 
 <div>{{article.content}}</div>
 <!--Insert here -->
-<div ng-if="article !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(article, 2)"/>
+<div ng-if="article !== undefined" ng-include="'contrib/comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(article, 2)"/>
 <!-- Voila, you are done. Were you expecting some more steps? :-) -->
 

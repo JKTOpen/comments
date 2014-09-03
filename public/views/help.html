@@ -1,0 +1,28 @@
+<div class="" data-ng-controller="CommentsController">
+  <h1>Example view from your new awesome package</h1>
+  <h2>Package: {{package.name}}</h2>
+  </br>
+  <p class="alert alert-info">
+    You can find your package in /packages/contrib/comments.
+    This is the first package contribution to MEAN.
+
+    To include comments, for now, you should just mention the same on
+
+
+    For example on -:
+
+    articles/views/view.html or articles/views/list.html
+
+    <pre>
+      &lt;div>{{article.content}}&lt;/div&gt;
+      &lt;!--Insert here --&gt;
+      &lt;div ng-if=&quot;article !== undefined&quot; ng-include=&quot;'contrib/comments/views/index.html'&quot; data-ng-controller=&quot;CommentsController&quot; data-ng-init=&quot;findComments(article, 2)&quot;/&gt;
+      &lt;!-- Voila, you are done. Were you expecting some more steps? :-) --&gt;
+    </pre>
+  </p>
+  </br>
+  For more information on mean docs
+  <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
+  </br>
+</div>
+
