@@ -8,10 +8,6 @@
   "scripts": {
     "postinstall": "bower install"
   },
-  // "dependencies": {
-  //   "mean-health": "~0.1.2",
-  //   "mean-socket": "https://git.mean.io/liorkesos/socket"
-  // },
   "mean": "0.4.0",
   "engines": {
     "node": "0.10.x",
