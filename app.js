@@ -42,30 +42,14 @@ Comments.register(function(app, auth, database, socket) {
     menu: 'main'
   });
 
-  Comments.aggregateAsset('js', '/packages/contrib/comments/public/assets/lib/angular-elastic/elastic.js', {
-    absolute: true
-  });
-  Comments.aggregateAsset('js', '/packages/contrib/comments/public/assets/lib/angular-emoticons/javascripts/angular-emoticons.js', {
-    absolute: true
-  });
-  Comments.aggregateAsset('js', '/packages/contrib/comments/public/assets/lib/angular-timeago/src/timeAgo.js', {
-    absolute: true
-  });
-  Comments.aggregateAsset('js', '/packages/contrib/comments/public/assets/lib/ment.io/dist/mentio.js', {
-    absolute: true
-  });
-  Comments.aggregateAsset('js', '/packages/contrib/comments/public/assets/lib/Autolinker.js/src/Autolinker.js', {
-    absolute: true
-  });
-  Comments.aggregateAsset('css', '/packages/contrib/comments/public/assets/lib/ment.io/ment.io/style.css', {
-    absolute: true
-  });
-  Comments.aggregateAsset('css', '/packages/contrib/comments/public/assets/lib/angular-emoticons/stylesheets/angular-emoticons.css', {
-    absolute: true
-  });
-  Comments.aggregateAsset('css', '/packages/contrib/comments/public/assets/css/comments.css', {
-    absolute: true
-  });
+  Comments.aggregateAsset('js', '../lib/angular-elastic/elastic.js');
+  Comments.aggregateAsset('js', '../lib/angular-emoticons/javascripts/angular-emoticons.js');
+  Comments.aggregateAsset('js', '../lib/angular-timeago/src/timeAgo.js');
+  Comments.aggregateAsset('js', '../lib/ment.io/dist/mentio.js');
+  Comments.aggregateAsset('js', '../lib/Autolinker.js/src/Autolinker.js');
+  Comments.aggregateAsset('css', '../lib/ment.io/ment.io/styles.css');
+  Comments.aggregateAsset('css', '../lib/angular-emoticons/stylesheets/angular-emoticons.css');
+  Comments.aggregateAsset('css', '../css/comments.css');
 
   Comments.angularDependencies(['yaru22.angular-timeago', 'emoticonizeFilter', 'monospaced.elastic', 'mentio', 'mean.socket']);
 
