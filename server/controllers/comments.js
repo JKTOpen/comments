@@ -109,8 +109,8 @@ exports.fetchByParent = function(req, res) {
   var parentId = req.params.parentId;
   var limit = req.query.limit;
   var query = Comment.find({
-    parent: parentId
-  })
+      parent: parentId
+    })
     .sort({
       _id: -1
     })
@@ -137,7 +137,7 @@ exports.allUsers = function(req, res) {
       $regex: req.query.term,
       $options: '-i'
     }
-  }).exec(function(err, users) {
+  }).limit(5).exec(function(err, users) {
     res.json(users);
   });
 };
