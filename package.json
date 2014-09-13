@@ -1,12 +1,13 @@
 {
   "name": "comments",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Enable comments with mentions and emoticons on your site",
   "author": {
     "name": "QED42"
   },
   "scripts": {
-    "postinstall": "bower install"
+    "preinstall": "node node_modules/meanio/bin/mean-preinstall",
+    "postinstall": "node node_modules/bower/bin/bower install"
   },
   "mean": "0.4.0",
   "engines": {
