@@ -1,5 +1,6 @@
 {
   "name": "mean",
+  "version": "0.3.3",
   "dependencies": {
     "angular-timeago": "~0.1.2",
     "angular-emoticons": "pratik60/angular-emoticons",

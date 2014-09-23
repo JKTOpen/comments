@@ -1,6 +1,0 @@
-{
-  "name": "comments",
-  "dependencies": {
-    "socket": "latest"
-  }
-}
