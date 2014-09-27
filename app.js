@@ -33,15 +33,6 @@ Comments.register(function(app, auth, database, socket) {
   });
   Comments.routes(app, auth, database);
 
-
-  //We are adding a link to the main menu for all authenticated users
-  Comments.menus.add({
-    title: 'comments help page',
-    link: 'comments help page',
-    roles: ['authenticated'],
-    menu: 'main'
-  });
-
   Comments.aggregateAsset('js', '../lib/angular-elastic/elastic.js');
   Comments.aggregateAsset('js', '../lib/angular-emoticons/javascripts/angular-emoticons.js');
   Comments.aggregateAsset('js', '../lib/angular-timeago/src/timeAgo.js');
