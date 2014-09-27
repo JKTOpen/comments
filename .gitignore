@@ -1,2 +1,8 @@
 node_modules
 public/assets/lib
+
+# --------------------
+# Sublime Files
+# --------------------
+*.sublime-project
+*.sublime-workspace
